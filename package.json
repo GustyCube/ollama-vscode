@@ -1,0 +1,179 @@
+{
+  "name": "ollama-vscode",
+  "displayName": "Ollama",
+  "description": "VS Code extension for Ollama AI integration with code completions and chat",
+  "version": "1.0.0",
+  "publisher": "ollama",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Machine Learning",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "ollama",
+    "ai",
+    "code completion",
+    "chat",
+    "llm"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ollama.openChat",
+        "title": "Open Chat",
+        "category": "Ollama",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "ollama.selectModel",
+        "title": "Select Model",
+        "category": "Ollama",
+        "icon": "$(robot)"
+      },
+      {
+        "command": "ollama.toggleCompletions",
+        "title": "Toggle Code Completions",
+        "category": "Ollama",
+        "icon": "$(lightbulb)"
+      },
+      {
+        "command": "ollama.clearChat",
+        "title": "Clear Chat History",
+        "category": "Ollama",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "ollama.checkConnection",
+        "title": "Check Connection",
+        "category": "Ollama",
+        "icon": "$(pulse)"
+      },
+      {
+        "command": "ollama.explainCode",
+        "title": "Explain Code",
+        "category": "Ollama"
+      },
+      {
+        "command": "ollama.improveCode",
+        "title": "Improve Code",
+        "category": "Ollama"
+      },
+      {
+        "command": "ollama.generateDocstring",
+        "title": "Generate Documentation",
+        "category": "Ollama"
+      },
+      {
+        "command": "ollama.askQuestion",
+        "title": "Ask Ollama",
+        "category": "Ollama"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "ollamaChat",
+          "name": "Ollama Chat",
+          "when": "ollamaEnabled"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "ollamaChat",
+        "contents": "Welcome to Ollama Chat!\n[Start Chat](command:ollama.openChat)"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "ollama.explainCode",
+          "group": "ollama@1"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "ollama.improveCode",
+          "group": "ollama@2"
+        },
+        {
+          "when": "editorHasSelection",
+          "command": "ollama.generateDocstring",
+          "group": "ollama@3"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "ollama.selectModel",
+          "when": "view == ollamaChat",
+          "group": "navigation@1"
+        },
+        {
+          "command": "ollama.clearChat",
+          "when": "view == ollamaChat",
+          "group": "navigation@2"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Ollama",
+      "properties": {
+        "ollama.apiUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "Ollama API URL"
+        },
+        "ollama.model": {
+          "type": "string",
+          "default": "llama3.2",
+          "description": "Default model to use for completions and chat"
+        },
+        "ollama.completions.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable inline code completions"
+        },
+        "ollama.completions.triggerChars": {
+          "type": "array",
+          "default": [" ", "\t", "\n", ".", "(", "[", "{"],
+          "description": "Characters that trigger completion suggestions"
+        },
+        "ollama.completions.maxTokens": {
+          "type": "number",
+          "default": 100,
+          "description": "Maximum tokens for code completions"
+        },
+        "ollama.chat.maxHistory": {
+          "type": "number",
+          "default": 20,
+          "description": "Maximum number of chat messages to keep in history"
+        },
+        "ollama.timeout": {
+          "type": "number",
+          "default": 30000,
+          "description": "Request timeout in milliseconds"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "18.x",
+    "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
