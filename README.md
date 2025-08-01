@@ -198,10 +198,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Support
 
-- 📖 [Documentation](https://github.com/ollama/ollama-vscode/wiki)
-- 🐛 [Report Issues](https://github.com/ollama/ollama-vscode/issues)
+- 📖 [Documentation](https://github.com/GustyCube/ollama-vscode/wiki)
+- 🐛 [Report Issues](https://github.com/GustyCube/ollama-vscode/issues)
 - 💬 [Discord Community](https://discord.gg/ollama)
-- 🌟 [Star on GitHub](https://github.com/ollama/ollama-vscode)
+- 🌟 [Star on GitHub](https://github.com/GustyCube/ollama-vscode)
 
 ## Changelog
 
