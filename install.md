@@ -9,6 +9,7 @@ Before installing the Ollama VS Code extension, ensure you have:
    - Follow the installation instructions for your operating system
 
 2. **At least one model downloaded**
+
    ```bash
    # Recommended for code completions
    ollama pull llama3.2
@@ -19,6 +20,7 @@ Before installing the Ollama VS Code extension, ensure you have:
    ```
 
 3. **Ollama running**
+
    ```bash
    ollama serve
    ```
@@ -26,18 +28,21 @@ Before installing the Ollama VS Code extension, ensure you have:
 ## Installing the Extension
 
 ### Method 1: VS Code Marketplace (Recommended)
+
 1. Open VS Code
 2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
 3. Search for "Ollama"
 4. Click "Install" on the official Ollama extension
 
 ### Method 2: Manual Installation
+
 1. Download the `.vsix` file from releases
 2. In VS Code, open Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
 3. Type "Extensions: Install from VSIX"
 4. Select the downloaded `.vsix` file
 
 ### Method 3: Development Installation
+
 1. Clone this repository
 2. Open in VS Code
 3. Press F5 to launch Extension Development Host
@@ -63,23 +68,27 @@ Test the installation:
 ## Configuration
 
 Access settings via:
+
 - File → Preferences → Settings → Search "Ollama"
 - Or use Command Palette: "Preferences: Open Settings (JSON)"
 
 ## Troubleshooting
 
 ### Extension not activating
+
 - Check VS Code version (requires 1.74.0+)
 - Restart VS Code after installation
 - Check the Output panel for error messages
 
 ### No AI features working
+
 - Ensure Ollama is running: `ollama serve`
 - Check models are available: `ollama list`
 - Verify API URL in settings matches your setup
 - Test connection: Command Palette → "Ollama: Check Connection"
 
 ### Performance issues
+
 - Try smaller models for faster responses
 - Adjust timeout settings
 - Reduce max tokens for completions
